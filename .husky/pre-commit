@@ -1,2 +1,3 @@
 yarn lint
+yarn format
 npx lint-staged
