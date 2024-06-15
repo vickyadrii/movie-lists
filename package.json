@@ -13,8 +13,14 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "axios": "^1.7.2",
+    "dayjs": "^1.11.11",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1",
+    "swiper": "^11.1.4"
   },
   "husky": {
     "hooks": {
@@ -22,6 +28,7 @@
     }
   },
   "devDependencies": {
+    "@types/node": "^20.14.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",

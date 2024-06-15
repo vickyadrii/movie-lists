@@ -1,11 +1,7 @@
+import AppRoutes from "./components/router/AppRoutes";
+
 function App() {
-  return (
-    <>
-      <div>
-        <p className="text-red-500">test</p>
-      </div>
-    </>
-  );
+  return <AppRoutes />;
 }
 
 export default App;
