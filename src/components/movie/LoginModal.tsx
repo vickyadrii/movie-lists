@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import tmdbLogo from "@/assets/tmdb_logo.png";
 import { getRequestToken } from "@/services/authService";
 
