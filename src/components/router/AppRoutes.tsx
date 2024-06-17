@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Routes
-import HomePage from "@/pages/HomePage";
 import Layout from "../common/Layout";
 
-// const tes = import.meta.env.VITE_TMDB_API_KEY
-// console.log(tes)
+// Routes
+import HomePage from "@/pages/HomePage";
+import FavoritePage from "@/pages/FavoritePage";
+import WatchlistPage from "@/pages/WatchlistPage";
 
 const AppRoutes = () => {
   return (
@@ -13,6 +13,8 @@ const AppRoutes = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/favorite" element={<FavoritePage />} />
+          <Route path="/watchlist" element={<WatchlistPage />} />
         </Routes>
       </Layout>
     </Router>

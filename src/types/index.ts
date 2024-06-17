@@ -13,3 +13,32 @@ export type Movie = {
   vote_average: number;
   vote_count: number;
 };
+
+export type User = {
+  avatar: {
+    gravatar: {
+      hash: string;
+    };
+    tmdb: {
+      avatar_path: string;
+    };
+  };
+  id: number;
+  include_adult: boolean;
+  iso_639_1: string;
+  iso_3166_1: string;
+  name: string;
+  username: string;
+};
+
+export type WatchlistRequest = {
+  media_type: string;
+  media_id: number;
+  watchlist: boolean;
+};
+
+export type FavoriteRequest = {
+  media_type: string;
+  media_id: number;
+  watchlist: boolean;
+};

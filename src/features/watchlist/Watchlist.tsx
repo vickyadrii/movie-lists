@@ -1,33 +1,37 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
 import dayjs from "dayjs";
 
 import { Movie } from "@/types";
-import { getTopRated } from "@/services/MovieListsService";
-
 import ListTitle from "@/components/common/ListTitle";
+import { getWatchlist } from "@/services/watchlistService";
 
-const TopRated = () => {
+const Watchlist = () => {
   const baseImageUrl = import.meta.env.VITE_TBDB_BASE_IMAGE_URL;
 
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const getNowPlayingMovies = useCallback(async () => {
+  const [watchlistMovies, setWatchlistMovies] = useState<Movie[]>([]);
+
+  const handleGetWatchlist = async () => {
     try {
-      const res = await getTopRated();
-      setMovies(res.data.results);
+      const res = await getWatchlist();
+      setWatchlistMovies(res.data.results);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  };
 
   useEffect(() => {
-    getNowPlayingMovies();
-  }, [getNowPlayingMovies]);
+    document.title = "Watchlist page | Technical Test Seryu Cargo";
+    handleGetWatchlist();
+  }, []);
 
   return (
     <div className="space-y-6">
-      <ListTitle title="Top Rated" />
+      <ListTitle title="Your Watchlist" />
+
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-[28px]">
-        {movies.map((movie) => (
+        {watchlistMovies.map((movie) => (
           <div key={movie.id}>
             <div>
               <img src={`${baseImageUrl}/${movie.poster_path}`} alt="" className="rounded-md" />
@@ -43,4 +47,4 @@ const TopRated = () => {
   );
 };
 
-export default TopRated;
+export default Watchlist;

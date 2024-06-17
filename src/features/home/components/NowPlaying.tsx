@@ -4,7 +4,7 @@ import { Movie } from "@/types";
 import { getNowPlaying } from "@/services/MovieListsService";
 
 import Slider from "./Slider";
-import ListTitle from "./ListTitle";
+import ListTitle from "@/components/common/ListTitle";
 
 const NowPlaying = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -12,7 +12,6 @@ const NowPlaying = () => {
     try {
       const res = await getNowPlaying();
       setMovies(res.data.results);
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
