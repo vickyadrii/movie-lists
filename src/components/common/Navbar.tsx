@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from "react-router-dom";
-import LoginModal from "./LoginModal";
+import LoginModal from "../movie/LoginModal";
 import { useEffect, useState } from "react";
 import { createSession, deleteSession } from "@/services/authService";
 

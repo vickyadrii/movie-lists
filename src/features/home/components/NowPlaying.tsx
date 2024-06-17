@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import { Movie } from "@/types";
 import { getNowPlaying } from "@/services/MovieListsService";
 
-import Slider from "./Slider";
-import ListTitle from "@/components/common/ListTitle";
+import ListTitle from "@/components/movie/ListTitle";
+import SliderMovieLists from "@/components/movie/SliderMovieLists";
 
 const NowPlaying = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -24,7 +24,7 @@ const NowPlaying = () => {
   return (
     <div className="space-y-6">
       <ListTitle title="Now Playing" />
-      <Slider slides={movies} />
+      <SliderMovieLists slides={movies} />
     </div>
   );
 };

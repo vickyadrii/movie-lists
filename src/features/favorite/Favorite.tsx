@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 import { Movie } from "@/types";
-import ListTitle from "@/components/common/ListTitle";
+import ListTitle from "@/components/movie/ListTitle";
 import { getFavorite } from "@/services/favoriteService";
-import MovieLists from "@/components/common/MovieLists";
+import MovieLists from "@/components/movie/MovieLists";
 
 const Favorite = () => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);

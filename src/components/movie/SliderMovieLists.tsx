@@ -16,13 +16,34 @@ export type Props = {
   slides: Movie[];
 };
 
-const Slider = ({ slides }: Props) => {
+const breakpoints = {
+  // when window width is >= 320px
+  320: {
+    slidesPerView: 2,
+    spaceBetween: 20,
+  },
+  // when window width is >= 480px
+  480: {
+    slidesPerView: 3,
+    spaceBetween: 24,
+  },
+  680: {
+    slidesPerView: 4,
+    spaceBetween: 24,
+  },
+  1080: {
+    slidesPerView: 6.5,
+    spaceBetween: 28,
+  },
+};
+
+const SliderMovieLists = ({ slides }: Props) => {
   const baseImageUrl = import.meta.env.VITE_TBDB_BASE_IMAGE_URL;
 
   const handleAddToFavorite = async (data: Movie) => {
     const payload: FavoriteRequest = {
       media_type: "movie",
-      media_id: data.id,
+      media_id: data.id ?? 0,
       favorite: true,
     };
     try {
@@ -36,7 +57,7 @@ const Slider = ({ slides }: Props) => {
   const handleAddToWatchlist = async (data: Movie) => {
     const payload: WatchlistRequest = {
       media_type: "movie",
-      media_id: data.id,
+      media_id: data.id ?? 0,
       watchlist: true,
     };
     try {
@@ -48,7 +69,7 @@ const Slider = ({ slides }: Props) => {
   };
 
   return (
-    <Swiper modules={[Scrollbar, A11y]} spaceBetween={28} slidesPerView={6.5} scrollbar={{ draggable: true }}>
+    <Swiper modules={[Scrollbar, A11y]} scrollbar={{ draggable: true }} breakpoints={breakpoints}>
       {slides.map((movie) => (
         <SwiperSlide key={movie.id}>
           <div className="relative">
@@ -74,4 +95,4 @@ const Slider = ({ slides }: Props) => {
   );
 };
 
-export default Slider;
+export default SliderMovieLists;

@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import { Movie } from "@/types";
 import { getTopRated } from "@/services/MovieListsService";
 
-import ListTitle from "@/components/common/ListTitle";
-import MovieLists from "@/components/common/MovieLists";
+import ListTitle from "@/components/movie/ListTitle";
+import MovieLists from "@/components/movie/MovieLists";
 
 const TopRated = () => {
   const [movies, setMovies] = useState<Movie[]>([]);

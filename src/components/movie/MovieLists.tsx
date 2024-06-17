@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Movie } from "@/types";
 
 import dayjs from "dayjs";
@@ -12,7 +14,7 @@ const MovieLists = ({ movies }: Props) => {
   return (
     <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-[28px]">
       {movies.map((movie) => (
-        <div key={movie.id}>
+        <Link to={`/${movie.id}`} key={movie.id}>
           <div>
             <img src={`${baseImageUrl}/${movie.poster_path}`} alt="" className="rounded-md" />
           </div>
@@ -20,7 +22,7 @@ const MovieLists = ({ movies }: Props) => {
             <h3 className="md:text-lg text-[#B6B6B6] md:font-bold font-semibold line-clamp-1">{movie.title}</h3>
             <p className="text-xs text-[#828282]">{dayjs(movie.release_date).format("YYYY")}</p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
