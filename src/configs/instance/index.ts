@@ -1,15 +1,16 @@
-const BASE_URL = "https://api.themoviedb.org/4";
+const BASE_URL = import.meta.env.VITE_TBDB_API_BASE_URL;
 
+import { getAccessToken } from "@/lib/authStorage";
 // import { getAccessToken } from "@/lib/authStorage";
 import axios, { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 
-const bearerToken = import.meta.env.VITE_TMDB_API_READ_ACCESS_TOKEN;
+// const bearerToken = import.meta.env.VITE_TMDB_API_READ_ACCESS_TOKEN;
 
 export const api: AxiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${bearerToken}`,
+    Authorization: `Bearer ${getAccessToken()}`,
   },
 });
 

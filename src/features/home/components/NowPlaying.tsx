@@ -1,36 +1,31 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { api } from "@/configs";
 import { Movie } from "@/types";
+import { getNowPlaying } from "@/services/MovieListsService";
+
 import Slider from "./Slider";
+import ListTitle from "./ListTitle";
 
 const NowPlaying = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const apiKey = import.meta.env.VITE_TMDB_API_KEY;
-
-  const handleGetListMovies = useCallback(async () => {
+  const getNowPlayingMovies = useCallback(async () => {
     try {
-      const res = await api.get(`/list/1?api_key=${apiKey}`);
-      console.log(res.data.results);
+      const res = await getNowPlaying();
       setMovies(res.data.results);
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
-  }, [apiKey]);
+  }, []);
 
   useEffect(() => {
-    handleGetListMovies();
-  }, [handleGetListMovies]);
+    getNowPlayingMovies();
+  }, [getNowPlayingMovies]);
 
   return (
-    <div>
-      <div className="space-y-6">
-        <h1 className="lg:text-5xl text-3xl font-semibold">Now Playing</h1>
-        <Slider slides={movies} />
-      </div>
-      <div>
-        <p>test</p>
-      </div>
+    <div className="space-y-6">
+      <ListTitle title="Now Playing" />
+      <Slider slides={movies} />
     </div>
   );
 };
