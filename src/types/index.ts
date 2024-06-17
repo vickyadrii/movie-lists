@@ -40,5 +40,5 @@ export type WatchlistRequest = {
 export type FavoriteRequest = {
   media_type: string;
   media_id: number;
-  watchlist: boolean;
+  favorite: boolean;
 };

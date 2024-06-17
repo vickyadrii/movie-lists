@@ -1,14 +1,16 @@
-import { Movie, WatchlistRequest } from "@/types";
+import { FavoriteRequest, Movie, WatchlistRequest } from "@/types";
 
 import dayjs from "dayjs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, A11y } from "swiper/modules";
 
+import { addToFavorite } from "@/services/favoriteService";
+import { addToWatchlist } from "@/services/watchlistService";
+
 // import iconBookmark from "@/assets/ic_bookmark.svg";
 // import iconFavorite from "@/assets/ic_favorite.svg";
 import iconFavoriteOutline from "@/assets/ic_favorite_outline.svg";
 import iconBookmarkOutline from "@/assets/ic_bookmark_outline.svg";
-import { addToWatchlist } from "@/services/watchlistService";
 
 export type Props = {
   slides: Movie[];
@@ -16,6 +18,20 @@ export type Props = {
 
 const Slider = ({ slides }: Props) => {
   const baseImageUrl = import.meta.env.VITE_TBDB_BASE_IMAGE_URL;
+
+  const handleAddToFavorite = async (data: Movie) => {
+    const payload: FavoriteRequest = {
+      media_type: "movie",
+      media_id: data.id,
+      favorite: true,
+    };
+    try {
+      const res = await addToFavorite(payload);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleAddToWatchlist = async (data: Movie) => {
     const payload: WatchlistRequest = {
@@ -31,8 +47,6 @@ const Slider = ({ slides }: Props) => {
     }
   };
 
-  console.log(slides);
-
   return (
     <Swiper modules={[Scrollbar, A11y]} spaceBetween={28} slidesPerView={6.5} scrollbar={{ draggable: true }}>
       {slides.map((movie) => (
@@ -43,7 +57,7 @@ const Slider = ({ slides }: Props) => {
                 <button onClick={() => handleAddToWatchlist(movie)}>
                   <img src={iconBookmarkOutline} alt="ic_bookmark" />
                 </button>
-                <button>
+                <button onClick={() => handleAddToFavorite(movie)}>
                   <img src={iconFavoriteOutline} alt="ic_bookmark" />
                 </button>
               </div>
