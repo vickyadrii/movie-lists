@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
       >
         <div className="min-h-screen px-5 py-10">
           <div className="flex flex-col gap-y-4">
-            <Link to="/">
+            <Link to="/" onClick={handleShowNavbar}>
               <h1 className="text-5xl font-extrabold tracking-[.4em]">CINEMA</h1>
             </Link>
             <div className="flex flex-col items-start gap-y-4 font-roboto">
