@@ -50,4 +50,5 @@ Start the server:
 - [Tailwind](https://tailwindcss.com/) - Utility-first CSS framework
 
 ## Preview
+
 <img width="1675" alt="Screenshot 2024-06-18 at 03 21 17" src="https://github.com/vickyadrii/movie-lists/assets/76042524/66f4599d-1bac-49c0-a161-b737290eb2e3">
