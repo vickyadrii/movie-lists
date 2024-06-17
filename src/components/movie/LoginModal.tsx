@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
-
 import tmdbLogo from "@/assets/tmdb_logo.png";
 import { getRequestToken } from "@/services/authService";
 
-const LoginModal = () => {
+interface LoginModalProps {
+  onClose: () => void;
+}
+
+const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleLogin = async () => {
+  const handleLogin = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     setIsLoading(true);
 
     try {
@@ -27,13 +31,13 @@ const LoginModal = () => {
   }, []);
 
   return (
-    <div className="fixed w-full h-screen bg-black/20 backdrop-blur-sm top-0 z-10 animate-fadeIn">
+    <div className="fixed w-full h-screen bg-black/20 backdrop-blur-sm top-0 z-10 animate-fadeIn" onClick={onClose}>
       <div className="flex h-screen justify-center items-center">
         <button
           onClick={handleLogin}
           className="bg-white px-[43px] py-[33px] flex flex-col items-center gap-2 rounded-3xl animate-scaleUp"
         >
-          <img src={tmdbLogo} alt="tbdb_logo" />
+          <img src={tmdbLogo} alt="tmdb_logo" />
           <span className="text-black text-sm">{isLoading ? "Loading..." : "Login with TMDB"}</span>
         </button>
       </div>

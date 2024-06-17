@@ -43,7 +43,7 @@ const SliderMovieLists = ({ slides }: Props) => {
   const handleAddToFavorite = async (data: Movie) => {
     const payload: FavoriteRequest = {
       media_type: "movie",
-      media_id: data.id ?? 0,
+      media_id: data?.id ?? 0,
       favorite: true,
     };
     try {
@@ -57,7 +57,7 @@ const SliderMovieLists = ({ slides }: Props) => {
   const handleAddToWatchlist = async (data: Movie) => {
     const payload: WatchlistRequest = {
       media_type: "movie",
-      media_id: data.id ?? 0,
+      media_id: data?.id ?? 0,
       watchlist: true,
     };
     try {
