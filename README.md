@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# Movie Lists (TMDB)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Technologies used:
 
-Currently, two official plugins are available:
+[![My Skills](https://skillicons.dev/icons?i=react,ts,vite,tailwind)](https://skillicons.dev)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+Here are the steps below to run this project.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+Make sure you have installed the following prerequisites before proceeding:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+
+## Installation
+
+1. Clone this repository to your local machine:
+
+   `git clone https://github.com/vickyadrii/movie-lists.git`
+
+2. Navigate to the project directory:
+
+   `cd movie-lists`
+
+3. Install all the required dependencies using npm or Yarn:
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+## Usage
+
+Start the server:
+
+```bash
+   npm run dev
+   # or
+   yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Built With
+
+- [React](https://react.dev/) - React library for building user interface
+- [TypeScript](https://www.typescriptlang.org/) - Programming language
+- [Vite](https://vitejs.dev/guide/) - Frontend build tool
+- [Tailwind](https://tailwindcss.com/) - Utility-first CSS framework
+
+## Preview
+<img width="1675" alt="Screenshot 2024-06-18 at 03 21 17" src="https://github.com/vickyadrii/movie-lists/assets/76042524/66f4599d-1bac-49c0-a161-b737290eb2e3">
