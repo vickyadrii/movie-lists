@@ -66,6 +66,7 @@ const SliderMovieLists = ({ slides }: Props) => {
         addToast(res.data.status_message, "success");
       } catch (error) {
         addToast("Oops something went wrong!", "error");
+        console.log(error);
       } finally {
         setIsLoading(false);
       }
@@ -89,6 +90,7 @@ const SliderMovieLists = ({ slides }: Props) => {
         addToast(res.data.status_message, "success");
       } catch (error) {
         addToast("Oops something went wrong!", "error");
+        console.log(error);
       } finally {
         setIsLoading(false);
       }

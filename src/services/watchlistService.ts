@@ -7,7 +7,7 @@ const sessionIdString = localStorage.getItem("tmdb_session_id");
 const sessionId = sessionIdString ? JSON.parse(sessionIdString) : null;
 
 export const addToWatchlist = (payload: WatchlistRequest) => {
-  return api.post(`/account/${user.id}/watchlist`, payload, {
+  return api.post(`/account/${user?.id}/watchlist`, payload, {
     params: {
       session_id: sessionId,
     },
@@ -15,7 +15,7 @@ export const addToWatchlist = (payload: WatchlistRequest) => {
 };
 
 export const getWatchlist = () => {
-  return api.get(`/account/${user.id}/watchlist/movies`, {
+  return api.get(`/account/${user?.id}/watchlist/movies`, {
     params: {
       session_id: sessionId,
       sort_by: "created_at.asc",
