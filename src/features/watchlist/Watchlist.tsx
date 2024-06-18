@@ -34,7 +34,11 @@ const Watchlist = () => {
       <ListTitle title="Your Watchlist" />
 
       <Spin spinning={isLoading}>
-        <MovieLists movies={watchlistMovies} />
+        {watchlistMovies.length !== 0 || isLoading ? (
+          <MovieLists movies={watchlistMovies} />
+        ) : (
+          <span className="text-lg font-semibold">No Data</span>
+        )}
       </Spin>
     </div>
   );

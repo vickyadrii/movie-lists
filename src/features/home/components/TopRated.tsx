@@ -32,7 +32,11 @@ const TopRated = () => {
     <div className="space-y-6">
       <ListTitle title="Top Rated" />
       <Spin spinning={isLoading}>
-        <MovieLists movies={movies} />
+        {movies.length !== 0 || isLoading ? (
+          <MovieLists movies={movies} />
+        ) : (
+          <span className="text-lg font-semibold">No Data</span>
+        )}
       </Spin>
     </div>
   );

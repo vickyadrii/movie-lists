@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
     <>
       <nav className="bg-primary-blue">
         {/* Navbar Dekstop */}
-        <div className="max-w-7xl mx-auto p-5 md:block hidden">
+        <div className="max-w-[1360px] mx-auto p-5 md:block hidden">
           <div className="flex items-center justify-between">
             <Link to="/">
               <h1 className="text-5xl font-extrabold tracking-[.4em]">CINEMA</h1>

@@ -32,7 +32,11 @@ const NowPlaying = () => {
     <div className="space-y-6">
       <ListTitle title="Now Playing" />
       <Spin spinning={isLoading}>
-        <SliderMovieLists slides={movies} />
+        {movies.length !== 0 || isLoading ? (
+          <SliderMovieLists slides={movies} />
+        ) : (
+          <span className="text-lg font-semibold">No Data</span>
+        )}
       </Spin>
     </div>
   );

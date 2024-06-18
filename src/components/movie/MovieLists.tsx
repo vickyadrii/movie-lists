@@ -11,10 +11,13 @@ type Props = {
 const MovieLists = ({ movies }: Props) => {
   const baseImageUrl = import.meta.env.VITE_TBDB_BASE_IMAGE_URL;
 
+  const sessionIdString = localStorage.getItem("tmdb_session_id");
+  const sessionId = sessionIdString ? JSON.parse(sessionIdString) : null;
+
   return (
     <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-[28px]">
       {movies.map((movie) => (
-        <Link to={`/${movie.id}`} key={movie.id}>
+        <Link to={sessionId ? `/${movie.id}` : "/"} key={movie.id} className={`${!sessionId ? "cursor-default" : ""}`}>
           <div>
             <img src={`${baseImageUrl}/${movie.poster_path}`} alt="" className="rounded-md" />
           </div>

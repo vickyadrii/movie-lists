@@ -33,7 +33,11 @@ const Favorite = () => {
       <ListTitle title="Your Favorite" />
 
       <Spin spinning={isLoading}>
-        <MovieLists movies={favoriteMovies} />
+        {favoriteMovies.length !== 0 || isLoading ? (
+          <MovieLists movies={favoriteMovies} />
+        ) : (
+          <span className="text-lg font-semibold">No Data</span>
+        )}
       </Spin>
     </div>
   );
