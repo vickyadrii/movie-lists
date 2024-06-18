@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import Navbar from "./Navbar";
+import { ToastProvider } from "@/components/ui/toast-provider";
 import { getAccountDetails } from "@/services/authService";
 
 type Props = {
@@ -23,10 +24,10 @@ const Layout = ({ children }: Props) => {
   }, [sessionId]);
 
   return (
-    <div className={`${navLists.includes(pathname) ? "space-y-5" : "space-y-0"}`}>
+    <ToastProvider>
       <Navbar />
       <div className={`${navLists.includes(pathname) ? "max-w-[1360px] mx-auto p-5" : ""}`}>{children}</div>
-    </div>
+    </ToastProvider>
   );
 };
 

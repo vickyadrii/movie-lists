@@ -11,13 +11,18 @@ export default {
         inter: ['"Inter", sans-serif'],
       },
       keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(-20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-out": {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(-20px)" },
         },
       },
       animation: {
-        fadeIn: "fadeIn 0.3s ease-out",
+        "fade-in": "fade-in 0.3s ease-out forwards",
+        "fade-out": "fade-out 0.3s ease-in forwards",
       },
     },
   },

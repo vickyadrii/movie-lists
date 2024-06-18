@@ -32,7 +32,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
   }, []);
 
   return (
-    <div className="fixed w-full h-screen bg-black/20 backdrop-blur-sm top-0 z-10 animate-fadeIn" onClick={onClose}>
+    <div className="fixed w-full h-screen bg-black/20 backdrop-blur-sm top-0 z-10 animate-fade-in" onClick={onClose}>
       <div className="flex h-screen justify-center items-center">
         <button
           onClick={handleLogin}

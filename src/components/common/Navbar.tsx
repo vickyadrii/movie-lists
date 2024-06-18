@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
-import LoginModal from "../movie/LoginModal";
+import LoginModal from "@/components/movie/LoginModal";
 import { createSession, deleteSession } from "@/services/authService";
 
 import iconLogout from "@/assets/ic_logout.svg";
@@ -35,6 +35,7 @@ const Navbar: React.FC = () => {
       console.log(res);
       localStorage.clear();
       window.location.reload();
+      window.location.href = "http://localhost:5173";
     } catch (error) {
       console.log(error);
     }

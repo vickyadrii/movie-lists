@@ -3,17 +3,24 @@ import { useCallback, useEffect, useState } from "react";
 import { Movie } from "@/types";
 import { getTopRated } from "@/services/MovieListsService";
 
+import Spin from "@/components/ui/spin";
 import ListTitle from "@/components/movie/ListTitle";
 import MovieLists from "@/components/movie/MovieLists";
 
 const TopRated = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const getNowPlayingMovies = useCallback(async () => {
+    setIsLoading(true);
+
     try {
       const res = await getTopRated();
       setMovies(res.data.results);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }, []);
 
@@ -24,7 +31,9 @@ const TopRated = () => {
   return (
     <div className="space-y-6">
       <ListTitle title="Top Rated" />
-      <MovieLists movies={movies} />
+      <Spin spinning={isLoading}>
+        <MovieLists movies={movies} />
+      </Spin>
     </div>
   );
 };

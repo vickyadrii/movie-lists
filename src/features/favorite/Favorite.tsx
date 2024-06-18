@@ -4,16 +4,22 @@ import { Movie } from "@/types";
 import ListTitle from "@/components/movie/ListTitle";
 import { getFavorite } from "@/services/favoriteService";
 import MovieLists from "@/components/movie/MovieLists";
+import Spin from "@/components/ui/spin";
 
 const Favorite = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
 
   const handleGetFavorite = async () => {
+    setIsLoading(true);
+
     try {
       const res = await getFavorite();
       setFavoriteMovies(res.data.results);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -26,7 +32,9 @@ const Favorite = () => {
     <div className="space-y-6">
       <ListTitle title="Your Favorite" />
 
-      <MovieLists movies={favoriteMovies} />
+      <Spin spinning={isLoading}>
+        <MovieLists movies={favoriteMovies} />
+      </Spin>
     </div>
   );
 };

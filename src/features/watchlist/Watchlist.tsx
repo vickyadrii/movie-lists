@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react";
 
 import { Movie } from "@/types";
+
+import Spin from "@/components/ui/spin";
 import ListTitle from "@/components/movie/ListTitle";
-import { getWatchlist } from "@/services/watchlistService";
 import MovieLists from "@/components/movie/MovieLists";
+import { getWatchlist } from "@/services/watchlistService";
 
 const Watchlist = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [watchlistMovies, setWatchlistMovies] = useState<Movie[]>([]);
 
   const handleGetWatchlist = async () => {
+    setIsLoading(true);
+
     try {
       const res = await getWatchlist();
       setWatchlistMovies(res.data.results);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -26,7 +33,9 @@ const Watchlist = () => {
     <div className="space-y-6">
       <ListTitle title="Your Watchlist" />
 
-      <MovieLists movies={watchlistMovies} />
+      <Spin spinning={isLoading}>
+        <MovieLists movies={watchlistMovies} />
+      </Spin>
     </div>
   );
 };
