@@ -9,6 +9,7 @@ interface LoginModalProps {
 
 const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const baseOrigin = window.location.origin;
 
   const handleLogin = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
@@ -16,7 +17,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
 
     try {
       const requestToken = await getRequestToken();
-      window.location.href = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=http://localhost:5173`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${baseOrigin}`;
     } catch (error) {
       console.log(error);
     } finally {

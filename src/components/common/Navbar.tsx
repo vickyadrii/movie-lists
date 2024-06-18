@@ -35,7 +35,6 @@ const Navbar: React.FC = () => {
       console.log(res);
       localStorage.clear();
       window.location.reload();
-      window.location.href = "http://localhost:5173";
     } catch (error) {
       console.log(error);
     }

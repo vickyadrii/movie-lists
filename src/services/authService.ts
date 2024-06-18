@@ -13,12 +13,14 @@ export const getRequestToken = async () => {
 };
 
 export const createSession = async (requestToken: string) => {
+  const baseOrigin = window.location.origin;
+
   try {
     const res = await api.post("/authentication/session/new", {
       request_token: requestToken,
     });
     localStorage.setItem("tmdb_session_id", JSON.stringify(res.data.session_id));
-    window.location.href = "http://localhost:5173";
+    window.location.href = baseOrigin;
   } catch (error) {
     console.log(error);
   }
