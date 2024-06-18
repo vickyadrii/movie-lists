@@ -49,8 +49,6 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {showModal && <LoginModal onClose={() => setShowModal(false)} />}
-
       <nav className="bg-primary-blue">
         {/* Navbar Dekstop */}
         <div className="max-w-7xl mx-auto p-5 md:block hidden">
@@ -124,6 +122,8 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {showModal && <LoginModal onClose={() => setShowModal(false)} />}
     </>
   );
 };

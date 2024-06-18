@@ -26,7 +26,7 @@ const Spin = ({ spinning, children }: Props) => {
           <img src={iconSpin} alt="ic_spin" className="animate-spin w-10 h-10" />
         </div>
       )}
-      <div className={`${spinning ? "opacity-50" : "opacity-100"} relative z-0`}>{children}</div>
+      <div className={`${spinning ? "opacity-50" : "opacity-100"} relative`}>{children}</div>
     </div>
   );
 };
