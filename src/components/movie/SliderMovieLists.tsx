@@ -1,19 +1,19 @@
+import { useState } from "react";
 import { FavoriteRequest, Movie, WatchlistRequest } from "@/types";
 
 import dayjs from "dayjs";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, A11y } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { addToFavorite } from "@/services/favoriteService";
 import { addToWatchlist } from "@/services/watchlistService";
 
 // import iconBookmark from "@/assets/ic_bookmark.svg";
 // import iconFavorite from "@/assets/ic_favorite.svg";
+import Spin from "@/components/ui/spin";
+import { useToast } from "@/components/ui/toast-provider";
 import iconFavoriteOutline from "@/assets/ic_favorite_outline.svg";
 import iconBookmarkOutline from "@/assets/ic_bookmark_outline.svg";
-import { useToast } from "../ui/toast-provider";
-import { useState } from "react";
-import Spin from "../ui/spin";
 
 export type Props = {
   slides: Movie[];
